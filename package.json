@@ -1,0 +1,30 @@
+{
+  "name": "v1",
+  "version": "1.0.0",
+  "description": "",
+  "engines": {
+    "node": "5.5.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.8.5",
+    "jasmine": "^2.4.1",
+    "jasmine-reporters": "^2.1.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "phantomjs": "^2.1.2",
+    "protractor": "^3.0.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.7",
+    "express": "^4.13.4"
+  }
+}
