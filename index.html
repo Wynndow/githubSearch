@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Github user search</title>
-    <link rel="stylesheet" href="public/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="public/bower_components/bootstrap/dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="public/css/application.css">
     <script src="public/bower_components/jquery/dist/jquery.js"></script>
     <script src="public/bower_components/angular/angular.js"></script>
     <script src="public/bower_components/angular-resource/angular-resource.js"></script>
@@ -14,18 +15,29 @@
   </head>
 
   <body ng-controller="GitUserSearchController as searchCtrl">
-    <div>
-      <form class="form-horizontal">
-        <input type="text" ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
-        <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
-      </form>
-      <h1 ng-show="searchCtrl.searchTerm">Search results for {{searchCtrl.searchTerm}}</h1>
-      <ul class="list-group" ng-show="searchCtrl.searchTerm">
-        <li ng-repeat="user in searchCtrl.searchResult.items">
-          <img class="profile_pic" ng-src="{{user.avatar_url}}" height="600" width="600">
-          <a ng-href="{{user.html_url}}">{{user.login}}</a>
-        </li>
-      </ul>
+    <div class="header">
+      <p class="title">Github User Search</p>
     </div>
+    <main>
+      <div>
+        <form class="form-horizontal">
+          <input type="text" placeholder="Enter a GutHub username" autofocus ng-model="searchCtrl.searchTerm" ng-change="searchCtrl.doSearch()" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }">
+          <button class="btn" ng-click="searchCtrl.doSearch()">Search</button>
+        </form>
+        <p class="searchTitle" ng-show="searchCtrl.searchTerm">Search results for {{searchCtrl.searchTerm}}</p>
+        <ul class="list-group" ng-show="searchCtrl.searchTerm">
+          <li class="user" ng-repeat="user in searchCtrl.searchResult.items">
+            <div>
+              <div class="picture">
+                <img class="profile_pic" ng-src="{{user.avatar_url}}" height="150" width="150">
+              </div>
+              <div class="info">
+                <a ng-href="{{user.html_url}}">{{user.login}}</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
   </body>
 </html>
